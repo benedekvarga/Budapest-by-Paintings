@@ -1,0 +1,83 @@
+PODS:
+  - Action (3.9.1):
+    - RxCocoa (~> 4.3)
+    - RxSwift (~> 4.3)
+  - Cache (5.2.0)
+  - DateToolsSwift (4.0.0)
+  - Imaginary (4.2.0):
+    - Cache (~> 5.0)
+  - Lightbox (2.3.0):
+    - Imaginary (~> 4.0)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxGesture (2.1.0):
+    - RxCocoa (~> 4.4.0)
+    - RxSwift (~> 4.4.0)
+  - RxRealm (0.7.6):
+    - RealmSwift (~> 3.0)
+    - RxSwift (~> 4.0)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
+  - RxSwiftExt (3.3.0):
+    - RxSwiftExt/Core (= 3.3.0)
+  - RxSwiftExt/Core (3.3.0):
+    - RxSwift (~> 4.0)
+  - SwiftLint (0.27.0)
+  - Then (2.4.0)
+
+DEPENDENCIES:
+  - Action
+  - DateToolsSwift
+  - Lightbox
+  - RxCocoa
+  - RxGesture
+  - RxRealm
+  - RxSwift
+  - RxSwiftExt
+  - SwiftLint
+  - Then
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Action
+    - Cache
+    - DateToolsSwift
+    - Imaginary
+    - Lightbox
+    - Realm
+    - RealmSwift
+    - RxAtomic
+    - RxCocoa
+    - RxGesture
+    - RxRealm
+    - RxSwift
+    - RxSwiftExt
+    - SwiftLint
+    - Then
+
+SPEC CHECKSUMS:
+  Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
+  Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
+  Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
+  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+
+PODFILE CHECKSUM: 787f6ee158f43512f48c0489d4d6ff6700348115
+
+COCOAPODS: 1.5.3
