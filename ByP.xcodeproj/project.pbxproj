@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D5F8CDB21BD597E00E22377 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */; };
+		0D5F8CDD21BD5C4D00E22377 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CDC21BD5C4D00E22377 /* ListView.swift */; };
+		0D5F8CE021BD609500E22377 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CDF21BD609500E22377 /* MapViewModel.swift */; };
+		0D5F8CE221BD609F00E22377 /* GalleryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE121BD609F00E22377 /* GalleryViewModel.swift */; };
+		0D5F8CE421BD610700E22377 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE321BD610700E22377 /* MapView.swift */; };
+		0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE521BD611600E22377 /* GalleryView.swift */; };
 		0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6359A721B5B3750072BD8E /* AppDelegate.swift */; };
 		0D6359AF21B5B3760072BD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359AE21B5B3760072BD8E /* Assets.xcassets */; };
 		0D6359B221B5B3760072BD8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359B021B5B3760072BD8E /* LaunchScreen.storyboard */; };
@@ -19,6 +25,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		0D5F8CDC21BD5C4D00E22377 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		0D5F8CDF21BD609500E22377 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		0D5F8CE121BD609F00E22377 /* GalleryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewModel.swift; sourceTree = "<group>"; };
+		0D5F8CE321BD610700E22377 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		0D5F8CE521BD611600E22377 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		0D6359A421B5B3750072BD8E /* ByP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6359A721B5B3750072BD8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6359AE21B5B3760072BD8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +58,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0D5F8CDE21BD5C5A00E22377 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F8CDC21BD5C4D00E22377 /* ListView.swift */,
+				0D9B9C2C21B5B7540074AEE4 /* ListViewController.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		0D5F8CE721BD612100E22377 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F8CE321BD610700E22377 /* MapView.swift */,
+				0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		0D5F8CE821BD612800E22377 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				0D5F8CE521BD611600E22377 /* GalleryView.swift */,
+				0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */,
+			);
+			path = Gallery;
+			sourceTree = "<group>";
+		};
 		0D63599B21B5B3750072BD8E = {
 			isa = PBXGroup;
 			children = (
@@ -67,9 +106,9 @@
 		0D6359A621B5B3750072BD8E /* ByP */ = {
 			isa = PBXGroup;
 			children = (
-				0D9B9C2921B5B60E0074AEE4 /* Models */,
 				0D9B9C2821B5B6060074AEE4 /* Views */,
 				0D9B9C2721B5B6000074AEE4 /* ViewModels */,
+				0D9B9C2921B5B60E0074AEE4 /* Models */,
 				0D9B9C3221B5C1640074AEE4 /* Extensions */,
 				0D6359A721B5B3750072BD8E /* AppDelegate.swift */,
 				0D6359B321B5B3760072BD8E /* Info.plist */,
@@ -82,6 +121,9 @@
 		0D9B9C2721B5B6000074AEE4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */,
+				0D5F8CDF21BD609500E22377 /* MapViewModel.swift */,
+				0D5F8CE121BD609F00E22377 /* GalleryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -90,9 +132,9 @@
 			isa = PBXGroup;
 			children = (
 				0D9B9C2A21B5B6BC0074AEE4 /* TabBarController.swift */,
-				0D9B9C2C21B5B7540074AEE4 /* ListViewController.swift */,
-				0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */,
-				0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */,
+				0D5F8CDE21BD5C5A00E22377 /* List */,
+				0D5F8CE721BD612100E22377 /* Map */,
+				0D5F8CE821BD612800E22377 /* Gallery */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -275,11 +317,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */,
+				0D5F8CE221BD609F00E22377 /* GalleryViewModel.swift in Sources */,
 				0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */,
+				0D5F8CE421BD610700E22377 /* MapView.swift in Sources */,
 				0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */,
 				0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */,
 				0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */,
+				0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */,
+				0D5F8CDB21BD597E00E22377 /* ListViewModel.swift in Sources */,
 				0D9B9C2F21B5B7950074AEE4 /* MapViewController.swift in Sources */,
+				0D5F8CDD21BD5C4D00E22377 /* ListView.swift in Sources */,
+				0D5F8CE021BD609500E22377 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
