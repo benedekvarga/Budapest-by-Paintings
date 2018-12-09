@@ -14,12 +14,13 @@ final class ListElementTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 18)
+        $0.font = UIFont.systemFont(ofSize: 28, weight: .light)
     }
     let backgroundImageView = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
+        $0.alpha = 0.4
     }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -45,11 +46,10 @@ final class ListElementTableViewCell: UITableViewCell {
     }
 
     func configure(title: String, image: UIImage) {
-        self.titleLabel.text = title
+        self.titleLabel.text = title.uppercased()
         let bwImage: UIImage = {
             let parameters = [
-                kCIInputSaturationKey: 0,
-                "inputContrast": NSNumber(value: 1)
+                kCIInputSaturationKey: 0
             ]
             let image = CIImage(image: image)?.applyingFilter("CIColorControls", parameters: parameters)
             let context = CIContext(options: nil)

@@ -7,7 +7,60 @@
 //
 
 import UIKit
+import Then
 
 final class ListView: UIView {
-    
+    let tableView = UITableView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.register(ListElementTableViewCell.self, forCellReuseIdentifier: ListElementTableViewCell.reuseIdentifier)
+        $0.backgroundColor = .clear
+        $0.allowsMultipleSelection = false
+        $0.allowsSelection = true
+        $0.showsVerticalScrollIndicator = true
+        $0.showsHorizontalScrollIndicator = false
+        $0.isUserInteractionEnabled = true
+        $0.separatorColor = .black
+        $0.separatorStyle = .singleLine
+        $0.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        $0.tableFooterView = UIView(frame: .zero)
+    }
+
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupLayout()
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+
+    private func setupLayout() {
+        addSubview(tableView)
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+extension ListView: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListElementTableViewCell.reuseIdentifier, for: indexPath) as? ListElementTableViewCell else { return .init() }
+        cell.configure(title: "Rakoczi ter", image: UIImage(named: "vaczi_painting") ?? UIImage())
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+
+
 }

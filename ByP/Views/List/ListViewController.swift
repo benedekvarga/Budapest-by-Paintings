@@ -30,7 +30,6 @@ final class ListViewController: UIViewController {
 
     func bindViewModel() {
         loadViewIfNeeded()
-        myView.backgroundColor = .blue
     }
 
     func dismissKeyboard() {

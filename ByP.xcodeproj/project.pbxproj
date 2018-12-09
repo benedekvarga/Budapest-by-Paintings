@@ -14,6 +14,7 @@
 		0D5F8CE421BD610700E22377 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE321BD610700E22377 /* MapView.swift */; };
 		0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE521BD611600E22377 /* GalleryView.swift */; };
 		0D5F8CEA21BD632700E22377 /* ListElementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CE921BD632700E22377 /* ListElementTableViewCell.swift */; };
+		0D5F8CEC21BD673000E22377 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CEB21BD673000E22377 /* ReusableView.swift */; };
 		0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6359A721B5B3750072BD8E /* AppDelegate.swift */; };
 		0D6359AF21B5B3760072BD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359AE21B5B3760072BD8E /* Assets.xcassets */; };
 		0D6359B221B5B3760072BD8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359B021B5B3760072BD8E /* LaunchScreen.storyboard */; };
@@ -33,6 +34,7 @@
 		0D5F8CE321BD610700E22377 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		0D5F8CE521BD611600E22377 /* GalleryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryView.swift; sourceTree = "<group>"; };
 		0D5F8CE921BD632700E22377 /* ListElementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListElementTableViewCell.swift; sourceTree = "<group>"; };
+		0D5F8CEB21BD673000E22377 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		0D6359A421B5B3750072BD8E /* ByP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6359A721B5B3750072BD8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6359AE21B5B3760072BD8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				0D9B9C3321B5C1770074AEE4 /* UIColor.swift */,
+				0D5F8CEB21BD673000E22377 /* ReusableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */,
 				0D5F8CE421BD610700E22377 /* MapView.swift in Sources */,
 				0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */,
+				0D5F8CEC21BD673000E22377 /* ReusableView.swift in Sources */,
 				0D5F8CEA21BD632700E22377 /* ListElementTableViewCell.swift in Sources */,
 				0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */,
 				0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */,
