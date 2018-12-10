@@ -7,9 +7,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 final class ListViewController: UIViewController {
     var viewModel: ListViewModel!
+    private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +33,15 @@ final class ListViewController: UIViewController {
 
     func bindViewModel() {
         loadViewIfNeeded()
+        bindTableView()
+    }
+
+    private func bindTableView() {
+        viewModel.places
+            .bind(to: myView.tableView.rx.items(cellIdentifier: ListElementTableViewCell.reuseIdentifier, cellType: ListElementTableViewCell.self)) { _, item, cell in
+                cell.configure(title: item.name, image: item.painting)
+        }
+        .disposed(by: bag)
     }
 
     func dismissKeyboard() {

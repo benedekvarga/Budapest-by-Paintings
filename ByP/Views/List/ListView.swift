@@ -29,7 +29,6 @@ final class ListView: UIView {
         super.init(frame: frame)
         setupLayout()
         tableView.delegate = self
-        tableView.dataSource = self
     }
 
     private func setupLayout() {
@@ -47,20 +46,8 @@ final class ListView: UIView {
     }
 }
 
-extension ListView: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListElementTableViewCell.reuseIdentifier, for: indexPath) as? ListElementTableViewCell else { return .init() }
-        cell.configure(title: "Rakoczi ter", image: UIImage(named: "vaczi_painting") ?? UIImage())
-        return cell
-    }
-
+extension ListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
-
-
 }
