@@ -39,9 +39,7 @@ final class MapViewController: UIViewController {
         viewModel.annotations
             .subscribe(onNext: { [weak self] places in
                 if let self = self {
-                    logger(places.count)
                     self.myView.mapView.addAnnotations(places)
-                    logger(self.myView.mapView.annotations.count)
                     self.myView.mapView.setRegion(self.viewModel.centerMapOnLocation(location: self.myView.mapView.annotations.middle()), animated: true)
                 }
             })

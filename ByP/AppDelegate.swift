@@ -135,10 +135,6 @@ extension AppDelegate {
                 }
             } else {
                 logger("Realm already initialized with \(realm.objects(Place.self).count) objects.")
-                realm.objects(Place.self).toArray()
-                    .map {
-                        logger($0.coordinates)
-                    }
             }
         } catch {
             logger("Realm init failed")

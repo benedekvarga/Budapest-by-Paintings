@@ -70,7 +70,7 @@ final class DetailsViewController: UIViewController {
         imageTap.rx.event
             .withLatestFrom(Observable.combineLatest(Observable.just(self), viewModel.place))
             .map { (vc, place) -> (UIViewController, UIImage, UIImage) in
-                return (vc, place.painting, (UIImage(named: "belgrad_painting") ?? UIImage()))
+                return (vc, place.photo, place.painting)
             }
             .subscribe(viewModel.seeFullScreenImageAction.inputs)
             .disposed(by: bag)
