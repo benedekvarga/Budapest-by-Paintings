@@ -25,6 +25,9 @@
 		0D9B9C2F21B5B7950074AEE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */; };
 		0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */; };
 		0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C3321B5C1770074AEE4 /* UIColor.swift */; };
+		0DD17E1921BED71900F284A6 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1821BED71900F284A6 /* CLLocationCoordinate2D.swift */; };
+		0DD17E1B21BED72B00F284A6 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1A21BED72B00F284A6 /* Array.swift */; };
+		0DD17E1D21BED9DB00F284A6 /* CustomMapAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1C21BED9DB00F284A6 /* CustomMapAnnotations.swift */; };
 		3283C0BFA6C6DD3F0C12327E /* Pods_ByP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E22A52DCC860C67ABD895D8 /* Pods_ByP.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +52,9 @@
 		0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0D9B9C3321B5C1770074AEE4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		0DD17E1821BED71900F284A6 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
+		0DD17E1A21BED72B00F284A6 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		0DD17E1C21BED9DB00F284A6 /* CustomMapAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotations.swift; sourceTree = "<group>"; };
 		5E22A52DCC860C67ABD895D8 /* Pods_ByP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ByP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8560FEB6951FFD355803C1F1 /* Pods-ByP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByP.release.xcconfig"; path = "Pods/Target Support Files/Pods-ByP/Pods-ByP.release.xcconfig"; sourceTree = "<group>"; };
 		9039B9F09B7F756F766FEE27 /* Pods-ByP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ByP/Pods-ByP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -81,6 +87,7 @@
 			children = (
 				0D5F8CE321BD610700E22377 /* MapView.swift */,
 				0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */,
+				0DD17E1C21BED9DB00F284A6 /* CustomMapAnnotations.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -159,9 +166,11 @@
 		0D9B9C3221B5C1640074AEE4 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0D9B9C3321B5C1770074AEE4 /* UIColor.swift */,
-				0D5F8CEB21BD673000E22377 /* ReusableView.swift */,
+				0DD17E1A21BED72B00F284A6 /* Array.swift */,
+				0DD17E1821BED71900F284A6 /* CLLocationCoordinate2D.swift */,
 				0D5F8CEF21BD7E4F00E22377 /* Logger.swift */,
+				0D5F8CEB21BD673000E22377 /* ReusableView.swift */,
+				0D9B9C3321B5C1770074AEE4 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -333,16 +342,19 @@
 				0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */,
 				0D5F8CE421BD610700E22377 /* MapView.swift in Sources */,
 				0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */,
+				0DD17E1D21BED9DB00F284A6 /* CustomMapAnnotations.swift in Sources */,
 				0D5F8CEC21BD673000E22377 /* ReusableView.swift in Sources */,
 				0D5F8CEA21BD632700E22377 /* ListElementTableViewCell.swift in Sources */,
 				0D5F8CF021BD7E4F00E22377 /* Logger.swift in Sources */,
 				0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */,
+				0DD17E1B21BED72B00F284A6 /* Array.swift in Sources */,
 				0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */,
 				0D5F8CEE21BD6BC300E22377 /* Place.swift in Sources */,
 				0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */,
 				0D5F8CDB21BD597E00E22377 /* ListViewModel.swift in Sources */,
 				0D9B9C2F21B5B7950074AEE4 /* MapViewController.swift in Sources */,
 				0D5F8CDD21BD5C4D00E22377 /* ListView.swift in Sources */,
+				0DD17E1921BED71900F284A6 /* CLLocationCoordinate2D.swift in Sources */,
 				0D5F8CE021BD609500E22377 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
