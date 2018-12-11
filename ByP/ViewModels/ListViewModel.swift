@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import RxRealm
 import RealmSwift
+import Action
+import UIKit
 
 struct ListViewModel {
     let view: ListViewController
@@ -34,4 +36,14 @@ struct ListViewModel {
             logger("Realm init failed.")
         }
     }
+
+    private(set) lazy var seeDetailsAction: Action<(UINavigationController, Place), Void> = { `self` in
+        Action { controller, place in
+            let view = DetailsViewController()
+            let viewModel = DetailsViewModel(place: place, view)
+            view.viewModel = viewModel
+            controller.pushViewController(view, animated: true)
+            return .just(())
+        }
+    }(self)
 }

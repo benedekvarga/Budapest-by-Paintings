@@ -12,9 +12,11 @@ import RxCocoa
 
 struct GalleryViewModel {
     let view: GalleryViewController
+//    let place: Place
     private let bag = DisposeBag()
 
     init(_ view: GalleryViewController) {
         self.view = view
+//        self.place = place
     }
 }

@@ -42,6 +42,13 @@ final class ListViewController: UIViewController {
                 cell.configure(title: item.name, image: item.painting)
         }
         .disposed(by: bag)
+
+        myView.tableView.rx.modelSelected(Place.self)
+            .map { place -> (UINavigationController, Place) in
+                return (self.navigationController ?? UINavigationController(), place)
+            }
+            .subscribe(viewModel.seeDetailsAction.inputs)
+            .disposed(by: bag)
     }
 
     func dismissKeyboard() {

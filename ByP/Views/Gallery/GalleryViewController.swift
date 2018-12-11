@@ -30,7 +30,8 @@ class GalleryViewController: UIViewController {
 
     func bindViewModel() {
         loadViewIfNeeded()
-        myView.backgroundColor = .gray
+        
+
     }
 
     func dismissKeyboard() {

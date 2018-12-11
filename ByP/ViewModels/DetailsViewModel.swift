@@ -15,9 +15,11 @@ import RealmSwift
 
 struct DetailsViewModel {
 	let view: DetailsViewController
+    let place: BehaviorRelay<Place>
 	private let bag = DisposeBag()
 
-    init(_ view: DetailsViewController) {
+    init(place: Place, _ view: DetailsViewController) {
         self.view = view
+        self.place = BehaviorRelay(value: place)
     }
 }

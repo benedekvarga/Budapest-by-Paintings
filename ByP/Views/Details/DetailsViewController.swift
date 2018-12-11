@@ -14,6 +14,7 @@ import Action
 
 final class DetailsViewController: UIViewController {
     var viewModel: DetailsViewModel!
+    private let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +28,45 @@ final class DetailsViewController: UIViewController {
         super.loadView()
         let customView = DetailsView()
         view = customView
-        myView.backgroundColor = .white
         dismissKeyboard()
         bindViewModel()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavigationBar()
+    }
+
+    private func setupNavigationBar() {
+        if let navBar = self.navigationController?.navigationBar {
+            navBar.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont.systemFont(ofSize: 24, weight: .thin)]
+            navBar.tintColor = .black
+            navBar.barTintColor = .white
+        }
+    }
+
     func bindViewModel() {
         loadViewIfNeeded()
-        myView.backgroundColor = .gray
+
+        viewModel.place
+            .map { $0.name }
+            .bind(to: self.rx.title)
+            .disposed(by: bag)
+        
+        viewModel.place
+            .map { $0.painter }
+            .bind(to: myView.painterNameLabel.rx.text)
+            .disposed(by: bag)
+
+        viewModel.place
+            .map { $0.datePainted }
+            .bind(to: myView.yearLabel.rx.text)
+            .disposed(by: bag)
+
+        viewModel.place
+            .map { $0.painting }
+            .bind(to: myView.paintingImageView.rx.image)
+            .disposed(by: bag)
     }
 
     func dismissKeyboard() {
