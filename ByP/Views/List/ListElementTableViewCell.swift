@@ -14,7 +14,8 @@ final class ListElementTableViewCell: UITableViewCell {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .center
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 28, weight: .light)
+        $0.adjustsFontSizeToFitWidth = true
+        $0.font = UIFont.systemFont(ofSize: 22, weight: .bold)
     }
     let backgroundImageView = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false

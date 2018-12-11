@@ -52,20 +52,27 @@ final class DetailsViewController: UIViewController {
             .map { $0.name }
             .bind(to: self.rx.title)
             .disposed(by: bag)
-        
         viewModel.place
             .map { $0.painter }
             .bind(to: myView.painterNameLabel.rx.text)
             .disposed(by: bag)
-
         viewModel.place
             .map { $0.datePainted }
             .bind(to: myView.yearLabel.rx.text)
             .disposed(by: bag)
-
         viewModel.place
             .map { $0.painting }
             .bind(to: myView.paintingImageView.rx.image)
+            .disposed(by: bag)
+        let imageTap = UITapGestureRecognizer()
+        myView.paintingImageView.isUserInteractionEnabled = true
+        myView.paintingImageView.addGestureRecognizer(imageTap)
+        imageTap.rx.event
+            .withLatestFrom(Observable.combineLatest(Observable.just(self), viewModel.place))
+            .map { (vc, place) -> (UIViewController, UIImage, UIImage) in
+                return (vc, place.painting, (UIImage(named: "belgrad_painting") ?? UIImage()))
+            }
+            .subscribe(viewModel.seeFullScreenImageAction.inputs)
             .disposed(by: bag)
     }
 

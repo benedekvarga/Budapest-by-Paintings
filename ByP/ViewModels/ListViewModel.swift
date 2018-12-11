@@ -39,10 +39,10 @@ struct ListViewModel {
 
     private(set) lazy var seeDetailsAction: Action<(UINavigationController, Place), Void> = { `self` in
         Action { controller, place in
-            let view = DetailsViewController()
-            let viewModel = DetailsViewModel(place: place, view)
-            view.viewModel = viewModel
-            controller.pushViewController(view, animated: true)
+            let vc = DetailsViewController()
+            let viewModel = DetailsViewModel(place: place, vc)
+            vc.viewModel = viewModel
+            controller.pushViewController(vc, animated: true)
             return .just(())
         }
     }(self)

@@ -22,4 +22,15 @@ struct DetailsViewModel {
         self.view = view
         self.place = BehaviorRelay(value: place)
     }
+
+    private(set) lazy var seeFullScreenImageAction: Action<(UIViewController, photo: UIImage, painting: UIImage), Void> = { `self` in
+        Action { controller, photo, painting in
+            let vc = FullScreenImageViewController()
+            let vm = FullScreenImageViewModel(photo: photo, painting: painting, view: vc)
+            vc.viewModel = vm
+            controller.present(vc, animated: true)
+            return .just(())
+        }
+    }(self)
+
 }

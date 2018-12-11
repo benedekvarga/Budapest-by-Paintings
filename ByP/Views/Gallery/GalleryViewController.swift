@@ -15,15 +15,12 @@ class GalleryViewController: UIViewController {
         super.viewDidLoad()
     }
 
-    var myView: GalleryView! {
-        return self.view as? GalleryView
-    }
+    var myView: GalleryView! { return self.view as? GalleryView }
 
     override func loadView() {
         super.loadView()
         let customView = GalleryView()
         view = customView
-        myView.backgroundColor = .white
         dismissKeyboard()
         bindViewModel()
     }
