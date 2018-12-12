@@ -67,6 +67,9 @@ final class DetailsViewController: UIViewController {
         let imageTap = UITapGestureRecognizer()
         myView.paintingImageView.isUserInteractionEnabled = true
         myView.paintingImageView.addGestureRecognizer(imageTap)
+        // Play video
+        myView.animationButton.rx.action = viewModel.playVideoAction
+        // Fullscreen image
         imageTap.rx.event
             .withLatestFrom(Observable.combineLatest(Observable.just(self), viewModel.place))
             .map { (vc, place) -> (UIViewController, UIImage, UIImage) in

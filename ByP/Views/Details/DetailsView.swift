@@ -34,7 +34,7 @@ final class DetailsView: UIView {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
     }
-    let animationButton = UIButton().then {
+    var animationButton = UIButton().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .clear
         $0.setTitle("See in motion", for: .normal)

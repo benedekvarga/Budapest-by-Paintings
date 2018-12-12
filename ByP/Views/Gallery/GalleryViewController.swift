@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AVKit
+import AVFoundation
 
 class GalleryViewController: UIViewController {
     var viewModel: GalleryViewModel!
@@ -25,9 +27,11 @@ class GalleryViewController: UIViewController {
         bindViewModel()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+    }
+
     func bindViewModel() {
         loadViewIfNeeded()
-        
 
     }
 

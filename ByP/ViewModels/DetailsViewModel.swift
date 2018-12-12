@@ -12,6 +12,9 @@ import RxCocoa
 import Action
 import RxRealm
 import RealmSwift
+import UIKit
+import AVKit
+import AVFoundation
 
 struct DetailsViewModel {
 	let view: DetailsViewController
@@ -32,5 +35,21 @@ struct DetailsViewModel {
             return .just(())
         }
     }(self)
+
+    var playVideoAction: CocoaAction {
+        return CocoaAction { _ in
+                guard let path = Bundle.main.path(forResource: "vaczi", ofType: "mp4") else {
+                    logger("Video not found")
+                    return .just(())
+                }
+                let player = AVPlayer(url: URL(fileURLWithPath: path))
+                let playerController = AVPlayerViewController()
+                playerController.player = player
+                self.view.present(playerController, animated: true) {
+                    player.play()
+                }
+            return .just(())
+        }
+    }
 
 }

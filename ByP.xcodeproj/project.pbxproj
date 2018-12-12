@@ -28,6 +28,7 @@
 		0D7ADB0D21C04DAE004A03DD /* FullScreenImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7ADB0A21C04DAE004A03DD /* FullScreenImageViewModel.swift */; };
 		0D7ADB0F21C055BF004A03DD /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7ADB0E21C055BF004A03DD /* UIImage.swift */; };
 		0D7ADB1121C058E1004A03DD /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7ADB1021C058E1004A03DD /* Screen.swift */; };
+		0D8E13B121C18C7100EAEC56 /* vaczi.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 0D8E13B021C18C7100EAEC56 /* vaczi.mp4 */; };
 		0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C2A21B5B6BC0074AEE4 /* TabBarController.swift */; };
 		0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C2C21B5B7540074AEE4 /* ListViewController.swift */; };
 		0D9B9C2F21B5B7950074AEE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */; };
@@ -40,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D4D809821C188D7005E82B2 /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		0D5F8CDC21BD5C4D00E22377 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
 		0D5F8CDF21BD609500E22377 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 		0D7ADB0A21C04DAE004A03DD /* FullScreenImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewModel.swift; sourceTree = "<group>"; };
 		0D7ADB0E21C055BF004A03DD /* UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		0D7ADB1021C058E1004A03DD /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		0D8E13B021C18C7100EAEC56 /* vaczi.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; name = vaczi.mp4; path = ByP/Resources/vaczi.mp4; sourceTree = "<group>"; };
 		0D9B9C2A21B5B6BC0074AEE4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		0D9B9C2C21B5B7540074AEE4 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +123,7 @@
 		0D63599B21B5B3750072BD8E = {
 			isa = PBXGroup;
 			children = (
+				0D8E13B021C18C7100EAEC56 /* vaczi.mp4 */,
 				0D6359A621B5B3750072BD8E /* ByP */,
 				0D6359A521B5B3750072BD8E /* Products */,
 				EBA694CF430D479519F7D12A /* Pods */,
@@ -141,6 +145,7 @@
 				0D9B9C2821B5B6060074AEE4 /* Views */,
 				0D9B9C2721B5B6000074AEE4 /* ViewModels */,
 				0D9B9C2921B5B60E0074AEE4 /* Models */,
+				0D4D809821C188D7005E82B2 /* Resources */,
 				0D9B9C3221B5C1640074AEE4 /* Extensions */,
 				0D6359A721B5B3750072BD8E /* AppDelegate.swift */,
 				0D6359B321B5B3760072BD8E /* Info.plist */,
@@ -292,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D8E13B121C18C7100EAEC56 /* vaczi.mp4 in Resources */,
 				0D6359B221B5B3760072BD8E /* LaunchScreen.storyboard in Resources */,
 				0D6359AF21B5B3760072BD8E /* Assets.xcassets in Resources */,
 			);
