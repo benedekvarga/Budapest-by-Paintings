@@ -1,27 +1,29 @@
 //
-//  GalleryViewController.swift
+//  ArViewController.swift
 //  ByP
 //
-//  Created by Benedek Varga on 2018. 12. 03..
+//  Created by Benedek Varga on 2018. 12. 13..
 //  Copyright © 2018. Benedek Varga. All rights reserved.
 //
 
 import UIKit
-import AVKit
-import AVFoundation
+import RxSwift
+import RxCocoa
+import RxGesture
+import Action
 
-final class GalleryViewController: UIViewController {
-    var viewModel: GalleryViewModel!
+final class ArViewController: UIViewController {
+    var viewModel: ArViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-    var myView: GalleryView! { return self.view as? GalleryView }
+    var myView: ArView! { return self.view as? ArView }
 
     override func loadView() {
         super.loadView()
-        let customView = GalleryView()
+        let customView = ArView()
         view = customView
         dismissKeyboard()
         bindViewModel()

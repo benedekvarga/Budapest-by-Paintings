@@ -17,6 +17,9 @@
 		0D5F8CEC21BD673000E22377 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CEB21BD673000E22377 /* ReusableView.swift */; };
 		0D5F8CEE21BD6BC300E22377 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CED21BD6BC300E22377 /* Place.swift */; };
 		0D5F8CF021BD7E4F00E22377 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5F8CEF21BD7E4F00E22377 /* Logger.swift */; };
+		0D6057EB21C252FF00D967D5 /* ArViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6057E821C252FF00D967D5 /* ArViewController.swift */; };
+		0D6057EC21C252FF00D967D5 /* ArView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6057E921C252FF00D967D5 /* ArView.swift */; };
+		0D6057ED21C252FF00D967D5 /* ArViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6057EA21C252FF00D967D5 /* ArViewModel.swift */; };
 		0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D6359A721B5B3750072BD8E /* AppDelegate.swift */; };
 		0D6359AF21B5B3760072BD8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359AE21B5B3760072BD8E /* Assets.xcassets */; };
 		0D6359B221B5B3760072BD8E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D6359B021B5B3760072BD8E /* LaunchScreen.storyboard */; };
@@ -52,6 +55,9 @@
 		0D5F8CEB21BD673000E22377 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		0D5F8CED21BD6BC300E22377 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		0D5F8CEF21BD7E4F00E22377 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		0D6057E821C252FF00D967D5 /* ArViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArViewController.swift; sourceTree = "<group>"; };
+		0D6057E921C252FF00D967D5 /* ArView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArView.swift; sourceTree = "<group>"; };
+		0D6057EA21C252FF00D967D5 /* ArViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArViewModel.swift; sourceTree = "<group>"; };
 		0D6359A421B5B3750072BD8E /* ByP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ByP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D6359A721B5B3750072BD8E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D6359AE21B5B3760072BD8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +126,15 @@
 			path = Gallery;
 			sourceTree = "<group>";
 		};
+		0D6057E721C252D700D967D5 /* Ar */ = {
+			isa = PBXGroup;
+			children = (
+				0D6057E921C252FF00D967D5 /* ArView.swift */,
+				0D6057E821C252FF00D967D5 /* ArViewController.swift */,
+			);
+			path = Ar;
+			sourceTree = "<group>";
+		};
 		0D63599B21B5B3750072BD8E = {
 			isa = PBXGroup;
 			children = (
@@ -176,11 +191,12 @@
 		0D9B9C2721B5B6000074AEE4 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */,
-				0D5F8CDF21BD609500E22377 /* MapViewModel.swift */,
+				0D6057EA21C252FF00D967D5 /* ArViewModel.swift */,
 				0D7ADB0321C0124F004A03DD /* DetailsViewModel.swift */,
 				0D7ADB0A21C04DAE004A03DD /* FullScreenImageViewModel.swift */,
 				0D5F8CE121BD609F00E22377 /* GalleryViewModel.swift */,
+				0D5F8CDA21BD597E00E22377 /* ListViewModel.swift */,
+				0D5F8CDF21BD609500E22377 /* MapViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -189,11 +205,12 @@
 			isa = PBXGroup;
 			children = (
 				0D9B9C2A21B5B6BC0074AEE4 /* TabBarController.swift */,
-				0D5F8CDE21BD5C5A00E22377 /* List */,
-				0D5F8CE721BD612100E22377 /* Map */,
+				0D6057E721C252D700D967D5 /* Ar */,
 				0D7ADB0021C01236004A03DD /* Details */,
 				0D7ADB0721C04D99004A03DD /* FullScreenImage */,
 				0D5F8CE821BD612800E22377 /* Gallery */,
+				0D5F8CDE21BD5C5A00E22377 /* List */,
+				0D5F8CE721BD612100E22377 /* Map */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -386,8 +403,10 @@
 				0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */,
 				0D5F8CE221BD609F00E22377 /* GalleryViewModel.swift in Sources */,
 				0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */,
+				0D6057EB21C252FF00D967D5 /* ArViewController.swift in Sources */,
 				0D5F8CE421BD610700E22377 /* MapView.swift in Sources */,
 				0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */,
+				0D6057EC21C252FF00D967D5 /* ArView.swift in Sources */,
 				0D7ADB1121C058E1004A03DD /* Screen.swift in Sources */,
 				0DD17E1D21BED9DB00F284A6 /* CustomMapAnnotations.swift in Sources */,
 				0D5F8CEC21BD673000E22377 /* ReusableView.swift in Sources */,
@@ -400,6 +419,7 @@
 				0DD17E1B21BED72B00F284A6 /* Array.swift in Sources */,
 				0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */,
 				0D7ADB0B21C04DAE004A03DD /* FullScreenImageViewController.swift in Sources */,
+				0D6057ED21C252FF00D967D5 /* ArViewModel.swift in Sources */,
 				0D5F8CEE21BD6BC300E22377 /* Place.swift in Sources */,
 				0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */,
 				0D5F8CDB21BD597E00E22377 /* ListViewModel.swift in Sources */,

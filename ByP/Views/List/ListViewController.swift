@@ -14,10 +14,6 @@ final class ListViewController: UIViewController {
     var viewModel: ListViewModel!
     private let bag = DisposeBag()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
     var myView: ListView! {
         return self.view as? ListView
     }
