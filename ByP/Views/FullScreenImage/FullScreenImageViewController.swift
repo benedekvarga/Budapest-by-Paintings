@@ -37,9 +37,8 @@ final class FullScreenImageViewController: UIViewController {
         let panRecogniser = UIPanGestureRecognizer()
         self.myView.addGestureRecognizer(panRecogniser)
         panRecogniser.rx.event
-            .withLatestFrom(viewModel.photoOpacity) { ($0, $1) }
-            .map { event, prevOpacity -> CGFloat in
-                let distance = event.translation(in: self.myView).x.distance(to: 0)
+            .withLatestFrom(viewModel.photoOpacity) { ($0.translation(in: self.myView).x.distance(to: 0), $1) }
+            .map { distance, prevOpacity -> CGFloat in
                 let maxValue = Screen.size.width * 0.7
                 let value = prevOpacity - (distance / maxValue)
                 if value < 0 {
