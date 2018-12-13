@@ -12,6 +12,7 @@ import RxCocoa
 import MapKit
 import RxRealm
 import RealmSwift
+import Action
 
 struct MapViewModel {
     let view: MapViewController
@@ -47,4 +48,14 @@ struct MapViewModel {
     func centerMapOnLocation(location: CLLocationCoordinate2D) -> MKCoordinateRegion {
         return MKCoordinateRegion(center: location, latitudinalMeters: regionRadius * 2.0, longitudinalMeters: regionRadius * 2.0)
     }
+
+    private(set) lazy var showArAction: Action<(UIViewController, Place), Void> = { `self` in
+        Action { controller, place in
+            let vc = ArViewController()
+            let viewModel = ArViewModel(vc, place: place)
+            vc.viewModel = viewModel
+            controller.present(vc, animated: true)
+            return .just(())
+        }
+    }(self)
 }

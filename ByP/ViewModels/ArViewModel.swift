@@ -19,9 +19,11 @@ import RxCocoa
 
 struct ArViewModel {
     let view: ArViewController
+    let place: BehaviorRelay<Place>
     private let bag = DisposeBag()
 
-    init(_ view: ArViewController) {
+    init(_ view: ArViewController, place: Place) {
         self.view = view
+        self.place = BehaviorRelay<Place>(value: place)
     }
 }

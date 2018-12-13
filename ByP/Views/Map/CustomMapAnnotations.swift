@@ -8,11 +8,15 @@
 
 import Foundation
 import MapKit
+import Action
+import RxSwift
+import RxCocoa
 
 class CustomMapAnnotation: NSObject, MKAnnotation {
     let title: String?
     let image: UIImage?
     var coordinate: CLLocationCoordinate2D
+    let place: Place
 
     init(_ interestPoint: Place) {
         self.title = interestPoint.name
@@ -20,6 +24,7 @@ class CustomMapAnnotation: NSObject, MKAnnotation {
         self.coordinate = CLLocationCoordinate2D(
             latitude: interestPoint.latitude,
             longitude: interestPoint.longitude)
+        self.place = interestPoint
         super.init()
     }
 }
@@ -40,7 +45,12 @@ extension MapViewController {
             view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
 
-            let infoButton = UIButton(type: .detailDisclosure)
+            var infoButton = UIButton(type: .detailDisclosure)
+            infoButton.rx.tap
+                .withLatestFrom(Observable.combineLatest(Observable.just(self), Observable.just(annotation.place)))
+                .subscribe(viewModel.showArAction.inputs)
+                .disposed(by: bag)
+
             infoButton.tintColor = UIColor.black
             view.rightCalloutAccessoryView = infoButton
 
