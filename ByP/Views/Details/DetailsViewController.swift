@@ -52,10 +52,12 @@ final class DetailsViewController: UIViewController {
             .map { $0.name }
             .bind(to: self.rx.title)
             .disposed(by: bag)
+
         viewModel.place
             .map { $0.painter }
             .bind(to: myView.painterNameLabel.rx.text)
             .disposed(by: bag)
+
         viewModel.place
             .map { $0.datePainted }
             .bind(to: myView.yearLabel.rx.text)

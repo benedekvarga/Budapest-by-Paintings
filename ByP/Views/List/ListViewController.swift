@@ -52,36 +52,37 @@ final class ListViewController: UIViewController {
     }
 }
 
-//extension ListViewController: UITableViewDataSource {
-//    // DataSource beállítása
-//    func setupDelegate() {
-//        // Should be called in ViewDidLoad()
-//        myView.tableView.dataSource = self
-//    }
-//
-//    // Lista sorainak száma
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return viewModel.places.value.count
-//    }
-//
-//    // Cellák feltöltése
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListElementTableViewCell.reuseIdentifier, for: indexPath) as? ListElementTableViewCell else { return .init() }
-//        if indexPath.row < viewModel.places.value.count {
-//            let place = viewModel.places.value[indexPath.row]
-//            cell.configure(title: place.name, image: place.painting)
-//            return cell
-//        } else {
-//            return .init()
-//        }
-//    }
-//
-//    // Kattintás lekezelése
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        if indexPath.row < viewModel.places.value.count {
-//            let place = viewModel.places.value[indexPath.row]
-//            viewModel.seeDetailsAction.execute((self.navigationController ?? UINavigationController(), place))
-//        }
-//    }
-//}
+extension ListViewController: UITableViewDataSource {
+    // DataSource beállítása
+    func setupDelegate() {
+        // Should be called in ViewDidLoad()
+        myView.tableView.dataSource = self
+    }
+
+    // Lista sorainak száma
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.places.value.count
+    }
+
+    // Cellák feltöltése
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListElementTableViewCell.reuseIdentifier,for: indexPath)
+            as? ListElementTableViewCell else { return .init() }
+        if indexPath.row < viewModel.places.value.count {
+            let place = viewModel.places.value[indexPath.row]
+            cell.configure(title: place.name, image: place.painting)
+            return cell
+        } else {
+            return .init()
+        }
+    }
+
+    // Kattintás lekezelése
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row < viewModel.places.value.count {
+            let place = viewModel.places.value[indexPath.row]
+            viewModel.seeDetailsAction.execute((self.navigationController ?? UINavigationController(), place))
+        }
+    }
+}
 
