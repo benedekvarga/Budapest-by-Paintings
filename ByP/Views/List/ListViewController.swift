@@ -35,7 +35,7 @@ final class ListViewController: UIViewController {
     private func bindTableView() {
         viewModel.places
             .bind(to: myView.tableView.rx.items(cellIdentifier: ListElementTableViewCell.reuseIdentifier, cellType: ListElementTableViewCell.self)) { _, item, cell in
-                cell.configure(title: item.name, image: item.painting)
+                cell.configure(title: item.name, painter: item.painter + " " + item.datePainted, number: item.orderId)
         }
         .disposed(by: bag)
 
@@ -70,7 +70,7 @@ extension ListViewController: UITableViewDataSource {
             as? ListElementTableViewCell else { return .init() }
         if indexPath.row < viewModel.places.value.count {
             let place = viewModel.places.value[indexPath.row]
-            cell.configure(title: place.name, image: place.painting)
+            cell.configure(title: place.name, painter: place.painter + " " + place.datePainted, number: place.orderId)
             return cell
         } else {
             return .init()
