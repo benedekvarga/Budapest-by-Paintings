@@ -13,5 +13,6 @@ target 'ByP' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RxRealm'
+  pod 'Reveal-SDK'
 
 end

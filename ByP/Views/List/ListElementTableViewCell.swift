@@ -40,6 +40,10 @@ final class ListElementTableViewCell: UITableViewCell {
         $0.textColor = .bypBlue
         $0.font = UIFont.robotoRegular(ofSize: 48)
     }
+    let coverView = UIView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = UIColor.transparentWhite(alpha: 0.8)
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -76,12 +80,20 @@ final class ListElementTableViewCell: UITableViewCell {
             painterLabel.centerYAnchor.constraint(equalTo: triangleIcon.bottomAnchor),
             painterLabel.heightAnchor.constraint(equalToConstant: 22)
         ])
+        contentView.addSubview(coverView)
+        NSLayoutConstraint.activate([
+            coverView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            coverView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            coverView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            coverView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
     }
 
-    func configure(title: String, painter: String, number: Int) {
+    func configure(title: String, painter: String, number: Int, isActive: Bool = false) {
         self.titleLabel.text = title
         self.painterLabel.text = painter
         self.numberTitle.text = number < 9 ? "0\(number+1)" : "\(number+1)"
+        self.coverView.isHidden = isActive ? true : false
     }
 
     required init?(coder aDecoder: NSCoder) {

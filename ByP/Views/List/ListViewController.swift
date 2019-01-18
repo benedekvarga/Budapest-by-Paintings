@@ -35,11 +35,13 @@ final class ListViewController: UIViewController {
     private func bindTableView() {
         viewModel.places
             .bind(to: myView.tableView.rx.items(cellIdentifier: ListElementTableViewCell.reuseIdentifier, cellType: ListElementTableViewCell.self)) { _, item, cell in
-                cell.configure(title: item.name, painter: item.painter + " " + item.datePainted, number: item.orderId)
+                cell.configure(title: item.name, painter: item.painter + " " + item.datePainted, number: item.orderId, isActive: item.isActive)
+                cell.selectionStyle = .none
         }
         .disposed(by: bag)
 
         myView.tableView.rx.modelSelected(Place.self)
+            .filter { $0.isActive }
             .map { place -> (UINavigationController, Place) in
                 return (self.navigationController ?? UINavigationController(), place)
             }

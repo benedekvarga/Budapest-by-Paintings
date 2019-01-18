@@ -62,7 +62,7 @@ extension MapViewController {
             view.leftCalloutAccessoryView = spotImage
         }
 
-        view.markerTintColor = UIColor.black
+        view.markerTintColor = .bypBlue
         view.titleVisibility = .hidden
         view.displayPriority = .required
 

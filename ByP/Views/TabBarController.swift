@@ -30,13 +30,8 @@ class TabBarController: UITabBarController {
             $0.tabBarItem = UITabBarItem(title: "Térkép", image: UIImage(named: "MapIcon")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "MapIconSelected")?.withRenderingMode(.alwaysOriginal))
             $0.viewModel = MapViewModel($0)
         }
-        // MARK: - Gallery
-        let galleryViewController = GalleryViewController().then {
-            $0.tabBarItem = UITabBarItem(title: "Galéria", image: UIImage(named: "GalleryIcon")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "GalleryIconSelected")?.withRenderingMode(.alwaysOriginal))
-            $0.viewModel = GalleryViewModel($0)
-        }
         
-        let tabBarList = [listViewController, mapViewController, galleryViewController]
+        let tabBarList = [mapViewController, listViewController]
         viewControllers = tabBarList
     }
 }

@@ -21,7 +21,7 @@ final class Place: Object {
     @objc dynamic var saved = false
     @objc dynamic var imageString = ""
     @objc dynamic var orderId = 0
-
+    @objc dynamic var isActive = false
 
     @objc dynamic var bearing = 0.0
     @objc dynamic var positionY: Float = 0.0

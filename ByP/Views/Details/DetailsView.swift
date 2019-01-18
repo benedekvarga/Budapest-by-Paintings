@@ -11,35 +11,89 @@ import Then
 
 final class DetailsView: UIView {
 	// MARK: - UI Elements
+    let scrollView = UIScrollView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .clear
+        $0.contentSize = CGSize(width: Screen.size.width, height: 2000)
+    }
+    let contentView = UIView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .clear
+    }
+    let numberLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textAlignment = .center
+        $0.textColor = .bypBlue
+        $0.text = "01"
+        $0.font = UIFont.robotoRegular(ofSize: 97)
+        $0.adjustsFontSizeToFitWidth = false
+        $0.backgroundColor = .clear
+        $0.layer.zPosition = 3
+    }
+    let fullSizeContainer = UIView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .clear
+    }
+    let fullSizeLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textAlignment = .left
+        $0.textColor = .bypBlue
+        $0.text = "Full size".uppercased()
+        $0.font = UIFont.robotoMedium(ofSize: 28)
+        $0.adjustsFontSizeToFitWidth = false
+        $0.backgroundColor = .clear
+    }
+    let fullSizeIcon = UIImageView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.contentMode = .scaleAspectFit
+        $0.image = UIImage(named: "up_triangle")
+        $0.backgroundColor = .clear
+    }
     let painterNameLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .left
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 24)
+        $0.font = UIFont.robotoMedium(ofSize: 18)
         $0.adjustsFontSizeToFitWidth = true
     }
     let yearLabel = UILabel().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.textAlignment = .left
         $0.textColor = .black
-        $0.font = UIFont.systemFont(ofSize: 18)
+        $0.font = UIFont.robotoMedium(ofSize: 18)
         $0.adjustsFontSizeToFitWidth = true
-    }
-    private let separatorView = UIView().then {
-        $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.backgroundColor = .black
     }
     let paintingImageView = UIImageView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
     }
-    var animationButton = UIButton().then {
+    let seeInMotionContainer = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .clear
-        $0.setTitle("See in motion", for: .normal)
-        $0.setTitleColor(.black, for: .normal)
-        $0.setTitleColor(.gray, for: .highlighted)
+    }
+    let seeInMotionLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.textAlignment = .left
+        $0.textColor = .bypBlue
+        $0.text = "See in motion".uppercased()
+        $0.font = UIFont.robotoMedium(ofSize: 28)
+        $0.adjustsFontSizeToFitWidth = false
+        $0.backgroundColor = .clear
+    }
+    let seeInMotionIcon = UIImageView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.image = UIImage(named: "list-triangle")
+        $0.contentMode = .scaleAspectFit
+        $0.backgroundColor = .clear
+    }
+    let textView = UITextView().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .clear
+        $0.isScrollEnabled = false
+        $0.font = UIFont.robotoRegular(ofSize: 13)
+        $0.textColor = .black
+        $0.textAlignment = .left
     }
 
 	// MARK: - Lifecycle
@@ -50,41 +104,95 @@ final class DetailsView: UIView {
 	}
 
     private func setupLayout() {
-        addSubview(painterNameLabel)
-        addSubview(yearLabel)
-        addSubview(separatorView)
-        addSubview(paintingImageView)
-        addSubview(animationButton)
-        let guide = safeAreaLayoutGuide
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        contentView.addSubview(fullSizeContainer)
+        fullSizeContainer.addSubview(fullSizeLabel)
+        fullSizeContainer.addSubview(fullSizeIcon)
+        contentView.addSubview(paintingImageView)
+        contentView.addSubview(numberLabel)
+        contentView.addSubview(seeInMotionContainer)
+        seeInMotionContainer.addSubview(seeInMotionLabel)
+        seeInMotionContainer.addSubview(seeInMotionIcon)
+        contentView.addSubview(painterNameLabel)
+        contentView.addSubview(yearLabel)
+        contentView.addSubview(textView)
         NSLayoutConstraint.activate([
-            painterNameLabel.topAnchor.constraint(equalToSystemSpacingBelow: guide.topAnchor, multiplier: 1),
-            painterNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            painterNameLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            painterNameLabel.heightAnchor.constraint(equalToConstant: 30)
+            scrollView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         NSLayoutConstraint.activate([
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.heightAnchor.constraint(equalToConstant: 1160)
+        ])
+        NSLayoutConstraint.activate([
+            fullSizeContainer.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            fullSizeContainer.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -56),
+            fullSizeContainer.heightAnchor.constraint(equalToConstant: 34),
+            fullSizeContainer.widthAnchor.constraint(equalToConstant: 160)
+        ])
+        NSLayoutConstraint.activate([
+            fullSizeLabel.leadingAnchor.constraint(equalTo: fullSizeContainer.leadingAnchor),
+            fullSizeLabel.topAnchor.constraint(equalTo: fullSizeContainer.topAnchor),
+            fullSizeLabel.bottomAnchor.constraint(equalTo: fullSizeContainer.bottomAnchor),
+            fullSizeLabel.widthAnchor.constraint(equalToConstant: 130)
+        ])
+        NSLayoutConstraint.activate([
+            fullSizeIcon.heightAnchor.constraint(equalToConstant: 26),
+            fullSizeIcon.widthAnchor.constraint(equalToConstant: 26),
+            fullSizeIcon.centerYAnchor.constraint(equalTo: fullSizeContainer.centerYAnchor),
+            fullSizeIcon.trailingAnchor.constraint(equalTo: fullSizeContainer.trailingAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            paintingImageView.topAnchor.constraint(equalTo: fullSizeContainer.bottomAnchor, constant: 10),
+            paintingImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            paintingImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            paintingImageView.heightAnchor.constraint(equalToConstant: 820)
+        ])
+        NSLayoutConstraint.activate([
+            numberLabel.widthAnchor.constraint(equalToConstant: 112),
+            numberLabel.heightAnchor.constraint(equalToConstant: 112),
+            numberLabel.leadingAnchor.constraint(equalTo: paintingImageView.leadingAnchor, constant: 20),
+            numberLabel.centerYAnchor.constraint(equalTo: paintingImageView.topAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            seeInMotionContainer.heightAnchor.constraint(equalToConstant: 34),
+            seeInMotionContainer.widthAnchor.constraint(equalToConstant: 230),
+            seeInMotionContainer.leadingAnchor.constraint(equalTo: paintingImageView.leadingAnchor, constant: 20),
+            seeInMotionContainer.topAnchor.constraint(equalTo: paintingImageView.bottomAnchor, constant: 10)
+        ])
+        NSLayoutConstraint.activate([
+            seeInMotionLabel.heightAnchor.constraint(equalTo: seeInMotionContainer.heightAnchor),
+            seeInMotionLabel.leadingAnchor.constraint(equalTo: seeInMotionContainer.leadingAnchor),
+            seeInMotionLabel.centerYAnchor.constraint(equalTo: seeInMotionContainer.centerYAnchor),
+            seeInMotionLabel.widthAnchor.constraint(equalToConstant: 200)
+        ])
+        NSLayoutConstraint.activate([
+            seeInMotionIcon.heightAnchor.constraint(equalToConstant: 26),
+            seeInMotionIcon.widthAnchor.constraint(equalToConstant: 26),
+            seeInMotionIcon.centerYAnchor.constraint(equalTo: seeInMotionContainer.centerYAnchor),
+            seeInMotionIcon.trailingAnchor.constraint(equalTo: seeInMotionContainer.trailingAnchor)
+        ])
+        NSLayoutConstraint.activate([
+            painterNameLabel.leadingAnchor.constraint(equalTo: paintingImageView.leadingAnchor, constant: 20),
+            painterNameLabel.topAnchor.constraint(equalTo: seeInMotionContainer.bottomAnchor, constant: 10),
+            painterNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            painterNameLabel.heightAnchor.constraint(equalToConstant: 22)
+        ])
+        NSLayoutConstraint.activate([
+            yearLabel.leadingAnchor.constraint(equalTo: paintingImageView.leadingAnchor, constant: 20),
             yearLabel.topAnchor.constraint(equalTo: painterNameLabel.bottomAnchor, constant: 10),
-            yearLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-            yearLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
-            yearLabel.heightAnchor.constraint(equalToConstant: 20)
+            yearLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            yearLabel.heightAnchor.constraint(equalToConstant: 22)
         ])
         NSLayoutConstraint.activate([
-            separatorView.heightAnchor.constraint(equalToConstant: 1),
-            separatorView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            separatorView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            separatorView.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 5)
-        ])
-        NSLayoutConstraint.activate([
-            animationButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 32),
-            animationButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -32),
-            animationButton.heightAnchor.constraint(equalToConstant: 48),
-            animationButton.bottomAnchor.constraint(equalToSystemSpacingBelow: guide.bottomAnchor, multiplier: 1)
-        ])
-        NSLayoutConstraint.activate([
-            paintingImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
-            paintingImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            paintingImageView.topAnchor.constraint(equalTo: separatorView.bottomAnchor, constant: 18),
-            paintingImageView.bottomAnchor.constraint(equalTo: animationButton.topAnchor, constant: -10)
+            textView.leadingAnchor.constraint(equalTo: paintingImageView.leadingAnchor, constant: 60),
+            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            textView.topAnchor.constraint(equalTo: yearLabel.bottomAnchor, constant: 10)
         ])
     }
 
