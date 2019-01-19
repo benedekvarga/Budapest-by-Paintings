@@ -39,4 +39,19 @@ struct ArViewModel {
             self.painting = place.painting
         }
     }
+
+    private(set) lazy var set: Action<Place, Void> = { `self` in
+        Action { place in
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    place.isActive = true
+                    realm.add(place, update: true)
+                }
+                return .just(())
+            } catch let error {
+                return .error(error)
+            }
+        }
+    }(self)
 }

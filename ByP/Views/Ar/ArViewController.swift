@@ -167,6 +167,11 @@ final class ArViewController: UIViewController {
                 }
             })
             .disposed(by: bag)
+
+        myView.setButton.rx.tap
+            .withLatestFrom(viewModel.place)
+            .subscribe(viewModel.set.inputs)
+            .disposed(by: bag)
     }
 
     func calculateDimensions(withWidth: Double, photo: UIImage) -> (CGFloat, CGFloat) {
@@ -230,6 +235,7 @@ final class ArViewController: UIViewController {
     }
 
     @objc func addPaintingToScene(withGestureRecognizer recognizer: UIGestureRecognizer) {
+        guard viewModel.arState.value != .set else { return }
         let tapLocation = recognizer.location(in: myView.sceneView)
         let hitTestResults = myView.sceneView.hitTest(tapLocation, types: .existingPlaneUsingExtent)
 
