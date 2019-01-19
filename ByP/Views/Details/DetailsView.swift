@@ -14,7 +14,7 @@ final class DetailsView: UIView {
     let scrollView = UIScrollView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .clear
-        $0.contentSize = CGSize(width: Screen.size.width, height: 2000)
+        $0.contentSize = CGSize(width: Screen.size.width, height: 1600)
     }
     let contentView = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
@@ -151,7 +151,7 @@ final class DetailsView: UIView {
             paintingImageView.topAnchor.constraint(equalTo: fullSizeContainer.bottomAnchor, constant: 10),
             paintingImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             paintingImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            paintingImageView.heightAnchor.constraint(equalToConstant: 820)
+            paintingImageView.heightAnchor.constraint(equalToConstant: 420)
         ])
         NSLayoutConstraint.activate([
             numberLabel.widthAnchor.constraint(equalToConstant: 112),
