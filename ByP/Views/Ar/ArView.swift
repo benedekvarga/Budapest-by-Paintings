@@ -35,6 +35,18 @@ final class ArView: UIView {
         $0.layer.cornerRadius = 6
         $0.clipsToBounds = true
     }
+
+    let setButton = UIButton().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.backgroundColor = .bypBlue
+        $0.setTitle("Set", for: .normal)
+        $0.setTitleColor(.white, for: .normal)
+        $0.setTitleColor(.transparentWhite(alpha: 0.6), for: .highlighted)
+        $0.layer.cornerRadius = 6
+        $0.clipsToBounds = true
+        $0.isHidden = true
+    }
+
     let controls = UIView().then {
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.backgroundColor = .transparentWhite(alpha: 0.15)
@@ -99,6 +111,18 @@ final class ArView: UIView {
         $0.minimumValue = -30
         $0.maximumValue = 30
     }
+    let instructionLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.robotoRegular(ofSize: 18)
+        $0.textColor = .black
+        $0.backgroundColor = UIColor.transparentWhite(alpha: 0.6)
+        $0.layer.cornerRadius = 6
+        $0.layer.masksToBounds = true
+        $0.textAlignment = .center
+        $0.isHidden = true
+    }
+
+    var opacityConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Lifecycle
 	override init(frame: CGRect) {
@@ -111,10 +135,12 @@ final class ArView: UIView {
     private func addSubViews() {
         addSubview(sceneView)
         addSubview(editButton)
+        addSubview(setButton)
         addSubview(exitButton)
+        addSubview(instructionLabel)
         addSubview(controls)
-        controls.addSubview(opacityLabel)
-        controls.addSubview(opacitySlider)
+        addSubview(opacityLabel)
+        addSubview(opacitySlider)
         controls.addSubview(scaleLabel)
         controls.addSubview(scaleSlider)
         controls.addSubview(rotationLabel)
@@ -141,10 +167,22 @@ final class ArView: UIView {
             editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
+            setButton.heightAnchor.constraint(equalToConstant: 50),
+            setButton.widthAnchor.constraint(equalToConstant: 60),
+            setButton.topAnchor.constraint(equalTo: editButton.bottomAnchor, constant: 10),
+            setButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
+        ])
+        NSLayoutConstraint.activate([
             exitButton.heightAnchor.constraint(equalToConstant: 50),
             exitButton.widthAnchor.constraint(equalToConstant: 60),
             exitButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             exitButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        ])
+        NSLayoutConstraint.activate([
+            instructionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+            instructionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
+            instructionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120),
+            instructionLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         NSLayoutConstraint.activate([
             controls.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -152,18 +190,15 @@ final class ArView: UIView {
             controls.bottomAnchor.constraint(equalTo: bottomAnchor),
             controls.heightAnchor.constraint(equalToConstant: 400)
         ])
-        NSLayoutConstraint.activate([
-            opacityLabel.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
-            opacityLabel.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
-            opacityLabel.topAnchor.constraint(equalTo: controls.topAnchor, constant: 10),
-            opacityLabel.heightAnchor.constraint(equalToConstant: 30)
-        ])
-        NSLayoutConstraint.activate([
-            opacitySlider.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
-            opacitySlider.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
-            opacitySlider.topAnchor.constraint(equalTo: opacityLabel.bottomAnchor),
-            opacitySlider.heightAnchor.constraint(equalToConstant: 30)
-        ])
+        opacityConstraints = [opacitySlider.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
+                              opacitySlider.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
+                              opacitySlider.topAnchor.constraint(equalTo: opacityLabel.bottomAnchor),
+                              opacitySlider.heightAnchor.constraint(equalToConstant: 30),
+                              opacityLabel.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
+                              opacityLabel.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
+                              opacityLabel.topAnchor.constraint(equalTo: controls.topAnchor, constant: 10),
+                              opacityLabel.heightAnchor.constraint(equalToConstant: 30)]
+        NSLayoutConstraint.activate(opacityConstraints)
         NSLayoutConstraint.activate([
             scaleLabel.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
             scaleLabel.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
@@ -226,6 +261,19 @@ final class ArView: UIView {
         ])
     }
 
+    func setButtonPressed() {
+        NSLayoutConstraint.deactivate(opacityConstraints)
+        opacityConstraints = [opacityLabel.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
+                              opacityLabel.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
+                              opacityLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -82),
+                              opacityLabel.heightAnchor.constraint(equalToConstant: 30),
+                              opacitySlider.leadingAnchor.constraint(equalTo: controls.leadingAnchor, constant: 12),
+                              opacitySlider.trailingAnchor.constraint(equalTo: controls.trailingAnchor, constant: -12),
+                              opacitySlider.topAnchor.constraint(equalTo: opacityLabel.bottomAnchor, constant: 12),
+                              opacitySlider.heightAnchor.constraint(equalToConstant: 30)]
+        NSLayoutConstraint.activate(opacityConstraints)
+    }
+
 	required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -236,7 +284,7 @@ private extension UILabel {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.textAlignment = .left
         self.backgroundColor = .clear
-        self.font = UIFont.systemFont(ofSize: 16, weight: .light)
+        self.font = UIFont.robotoLight(ofSize: 16)
     }
 }
 

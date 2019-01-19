@@ -44,6 +44,7 @@ final class ArViewController: UIViewController {
         myView.sceneView.session.run(configuration, options: [.removeExistingAnchors, .resetTracking])
         myView.sceneView.delegate = self
         myView.sceneView.session.delegate = self
+        viewModel.arState.accept(.noPlain)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -59,7 +60,22 @@ final class ArViewController: UIViewController {
             .disposed(by: bag)
 
         viewModel.isControlsHidden
-            .bind(to: myView.controls.rx.isHidden)
+            .withLatestFrom(viewModel.arState) { ($0, $1) }
+            .subscribe(onNext: { [weak self] isControlsHidden, arState in
+                if let self = self {
+                    if arState == ArStates.set {
+                        self.myView.controls.isHidden = true
+                        self.myView.opacitySlider.isHidden = false
+                        self.myView.opacityLabel.isHidden = false
+                        self.myView.editButton.isHidden = true
+                        self.myView.setButton.isHidden = true
+                    } else {
+                        self.myView.controls.isHidden = isControlsHidden
+                        self.myView.opacitySlider.isHidden = isControlsHidden
+                        self.myView.opacityLabel.isHidden = isControlsHidden
+                    }
+                }
+            })
             .disposed(by: bag)
 
         myView.exitButton.rx.tap
@@ -103,6 +119,48 @@ final class ArViewController: UIViewController {
         myView.opacitySlider.rx.value
             .subscribe(onNext: { value in
                 self.myView.opacityLabel.text = "Áttetszőség: \(String(format: "%.1f", value*100))%"
+            })
+            .disposed(by: bag)
+        viewModel.arState
+            .subscribe(onNext: { [weak self] state in
+                if let self = self {
+                    switch state {
+                    case .noPlain:
+                        self.myView.instructionLabel.isHidden = false
+                        self.myView.instructionLabel.text = "Mozgasd a telefont, amíg síkot talál"
+                        self.myView.setButton.isHidden = true
+                        self.myView.editButton.isHidden = true
+                    case .plainFound:
+                        DispatchQueue.main.async {
+                            self.myView.instructionLabel.isHidden = false
+                            self.myView.instructionLabel.text = "Kattints a síkra a festmény elhelyezéséhez"
+                            self.myView.setButton.isHidden = true
+                            self.myView.editButton.isHidden = true
+                        }
+                    case .paintingPlaced:
+                        self.myView.instructionLabel.isHidden = true
+                        self.myView.setButton.isHidden = false
+                        self.myView.editButton.isHidden = false
+                    case .set:
+                        self.myView.instructionLabel.isHidden = true
+                        self.myView.setButton.isHidden = true
+                        self.myView.editButton.isHidden = true
+                    }
+                }
+            })
+            .disposed(by: bag)
+
+        myView.setButton.rx.tap
+            .withLatestFrom(viewModel.arState)
+            .filter { $0 == ArStates.paintingPlaced }
+            .subscribe(onNext: { [weak self] _ in
+                if let self = self {
+                    self.myView.setButtonPressed()
+                    self.viewModel.arState.accept(.set)
+                    self.viewModel.isControlsHidden.accept(true)
+                    self.myView.setButton.isHidden = true
+                    self.myView.setNeedsLayout()
+                }
             })
             .disposed(by: bag)
     }
@@ -191,12 +249,13 @@ final class ArViewController: UIViewController {
         paintingInitialRotation = paintingNode.eulerAngles
 
         if isPaintingAdded {
-            myView.sceneView.scene.rootNode.replaceChildNode(myView.sceneView.scene.rootNode.childNodes[paintingNodeIndex], with: paintingNode)
+        myView.sceneView.scene.rootNode.replaceChildNode(myView.sceneView.scene.rootNode.childNodes[paintingNodeIndex], with: paintingNode)
         } else {
             myView.sceneView.scene.rootNode.addChildNode(paintingNode)
             paintingNodeIndex = myView.sceneView.scene.rootNode.childNodes.count-1
             isPaintingAdded = true
         }
+        viewModel.arState.accept(.paintingPlaced)
     }
 
     func addTapGestureRecogniser() {
@@ -226,6 +285,7 @@ extension ArViewController: ARSCNViewDelegate, ARSessionDelegate {
 
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         logger("plane found", event: .info)
+        viewModel.arState.accept(.plainFound)
 
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)

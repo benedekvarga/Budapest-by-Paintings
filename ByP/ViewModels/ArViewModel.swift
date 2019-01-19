@@ -17,12 +17,17 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+enum ArStates {
+    case noPlain, plainFound, paintingPlaced, set
+}
+
 struct ArViewModel {
     let view: ArViewController
     let place: BehaviorRelay<Place>
     private let bag = DisposeBag()
 
     let isControlsHidden = BehaviorRelay(value: true)
+    let arState = BehaviorRelay(value: ArStates.paintingPlaced)
     let painting: UIImage
 
     init(_ view: ArViewController, place: Place) {
