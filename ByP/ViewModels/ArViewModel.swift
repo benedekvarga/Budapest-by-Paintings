@@ -22,8 +22,16 @@ struct ArViewModel {
     let place: BehaviorRelay<Place>
     private let bag = DisposeBag()
 
+    let isControlsHidden = BehaviorRelay(value: true)
+    let painting: UIImage
+
     init(_ view: ArViewController, place: Place) {
         self.view = view
         self.place = BehaviorRelay<Place>(value: place)
+        if let paintingFixed = place.painting.fixedOrientation() {
+            self.painting = paintingFixed
+        } else {
+            self.painting = place.painting
+        }
     }
 }

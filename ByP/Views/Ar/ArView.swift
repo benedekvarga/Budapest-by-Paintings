@@ -45,6 +45,9 @@ final class ArView: UIView {
     }
     let opacitySlider = UISlider().then {
         $0.setupSlider()
+        $0.minimumValue = 0
+        $0.maximumValue = 1
+        $0.value = 1
     }
     let scaleLabel = UILabel().then {
         $0.setupSliderLabel()
@@ -52,6 +55,9 @@ final class ArView: UIView {
     }
     let scaleSlider = UISlider().then {
         $0.setupSlider()
+        $0.value = 1
+        $0.minimumValue = 1
+        $0.maximumValue = 30
     }
     let rotationLabel = UILabel().then {
         $0.setupSliderLabel()
@@ -59,6 +65,9 @@ final class ArView: UIView {
     }
     let rotationSlider = UISlider().then {
         $0.setupSlider()
+        $0.value = 0
+        $0.minimumValue = 0
+        $0.maximumValue = 360
     }
     let xLabel = UILabel().then {
         $0.setupSliderLabel()
@@ -66,6 +75,9 @@ final class ArView: UIView {
     }
     let xSlider = UISlider().then {
         $0.setupSlider()
+        $0.value = 0
+        $0.minimumValue = -30
+        $0.maximumValue = 30
     }
     let yLabel = UILabel().then {
         $0.setupSliderLabel()
@@ -73,6 +85,9 @@ final class ArView: UIView {
     }
     let ySlider = UISlider().then {
         $0.setupSlider()
+        $0.value = 0
+        $0.minimumValue = 0
+        $0.maximumValue = 30
     }
     let zLabel = UILabel().then {
         $0.setupSliderLabel()
@@ -80,6 +95,9 @@ final class ArView: UIView {
     }
     let zSlider = UISlider().then {
         $0.setupSlider()
+        $0.value = 0
+        $0.minimumValue = -30
+        $0.maximumValue = 30
     }
 
 	// MARK: - Lifecycle
@@ -91,7 +109,7 @@ final class ArView: UIView {
 
 	// MARK: - Setup methods
     private func addSubViews() {
-        //addSubview(sceneView)
+        addSubview(sceneView)
         addSubview(editButton)
         addSubview(exitButton)
         addSubview(controls)
@@ -110,22 +128,22 @@ final class ArView: UIView {
     }
 
     private func setupConstraints() {
-//        NSLayoutConstraint.activate([
-//            sceneView.topAnchor.constraint(equalTo: topAnchor),
-//            sceneView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            sceneView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            sceneView.trailingAnchor.constraint(equalTo: trailingAnchor)
-//        ])
+        NSLayoutConstraint.activate([
+            sceneView.topAnchor.constraint(equalTo: topAnchor),
+            sceneView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            sceneView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            sceneView.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
         NSLayoutConstraint.activate([
             editButton.heightAnchor.constraint(equalToConstant: 50),
             editButton.widthAnchor.constraint(equalToConstant: 60),
-            editButton.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+            editButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             editButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20)
         ])
         NSLayoutConstraint.activate([
             exitButton.heightAnchor.constraint(equalToConstant: 50),
             exitButton.widthAnchor.constraint(equalToConstant: 60),
-            exitButton.topAnchor.constraint(equalTo: topAnchor, constant: 70),
+            exitButton.topAnchor.constraint(equalTo: topAnchor, constant: 30),
             exitButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
         NSLayoutConstraint.activate([

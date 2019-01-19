@@ -37,6 +37,11 @@
 		0D9B9C2F21B5B7950074AEE4 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */; };
 		0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */; };
 		0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D9B9C3321B5C1770074AEE4 /* UIColor.swift */; };
+		0DB1420321F366EF00F4076E /* UIImag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1420221F366EF00F4076E /* UIImag.swift */; };
+		0DB1420521F369A000F4076E /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1420421F369A000F4076E /* Double.swift */; };
+		0DB1420721F369CC00F4076E /* SCNVector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1420621F369CC00F4076E /* SCNVector3.swift */; };
+		0DB1420921F369E400F4076E /* Float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1420821F369E400F4076E /* Float4x4.swift */; };
+		0DB1420B21F369FD00F4076E /* FloatingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB1420A21F369FD00F4076E /* FloatingPoint.swift */; };
 		0DD17E1921BED71900F284A6 /* CLLocationCoordinate2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1821BED71900F284A6 /* CLLocationCoordinate2D.swift */; };
 		0DD17E1B21BED72B00F284A6 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1A21BED72B00F284A6 /* Array.swift */; };
 		0DD17E1D21BED9DB00F284A6 /* CustomMapAnnotations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DD17E1C21BED9DB00F284A6 /* CustomMapAnnotations.swift */; };
@@ -90,6 +95,11 @@
 		0D9B9C2E21B5B7950074AEE4 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		0D9B9C3021B5B9D50074AEE4 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		0D9B9C3321B5C1770074AEE4 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		0DB1420221F366EF00F4076E /* UIImag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImag.swift; sourceTree = "<group>"; };
+		0DB1420421F369A000F4076E /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		0DB1420621F369CC00F4076E /* SCNVector3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCNVector3.swift; sourceTree = "<group>"; };
+		0DB1420821F369E400F4076E /* Float4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Float4x4.swift; sourceTree = "<group>"; };
+		0DB1420A21F369FD00F4076E /* FloatingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingPoint.swift; sourceTree = "<group>"; };
 		0DD17E1821BED71900F284A6 /* CLLocationCoordinate2D.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationCoordinate2D.swift; sourceTree = "<group>"; };
 		0DD17E1A21BED72B00F284A6 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		0DD17E1C21BED9DB00F284A6 /* CustomMapAnnotations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomMapAnnotations.swift; sourceTree = "<group>"; };
@@ -261,6 +271,11 @@
 				0D7ADB0E21C055BF004A03DD /* UIImage.swift */,
 				0D7ADB1021C058E1004A03DD /* Screen.swift */,
 				0DEF456921E3CE0A00E6CE3B /* UIFont.swift */,
+				0DB1420221F366EF00F4076E /* UIImag.swift */,
+				0DB1420421F369A000F4076E /* Double.swift */,
+				0DB1420621F369CC00F4076E /* SCNVector3.swift */,
+				0DB1420821F369E400F4076E /* Float4x4.swift */,
+				0DB1420A21F369FD00F4076E /* FloatingPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,8 +477,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0D6359A821B5B3750072BD8E /* AppDelegate.swift in Sources */,
+				0DB1420921F369E400F4076E /* Float4x4.swift in Sources */,
 				0D5F8CE221BD609F00E22377 /* GalleryViewModel.swift in Sources */,
 				0D9B9C3421B5C1770074AEE4 /* UIColor.swift in Sources */,
+				0DB1420321F366EF00F4076E /* UIImag.swift in Sources */,
 				0D6057EB21C252FF00D967D5 /* ArViewController.swift in Sources */,
 				0D5F8CE421BD610700E22377 /* MapView.swift in Sources */,
 				0D9B9C2B21B5B6BC0074AEE4 /* TabBarController.swift in Sources */,
@@ -477,11 +494,13 @@
 				0D5F8CF021BD7E4F00E22377 /* Logger.swift in Sources */,
 				0D7ADB0F21C055BF004A03DD /* UIImage.swift in Sources */,
 				0DEF456A21E3CE0A00E6CE3B /* UIFont.swift in Sources */,
+				0DB1420721F369CC00F4076E /* SCNVector3.swift in Sources */,
 				0D9B9C3121B5B9D50074AEE4 /* GalleryViewController.swift in Sources */,
 				0DD17E1B21BED72B00F284A6 /* Array.swift in Sources */,
 				0D9B9C2D21B5B7540074AEE4 /* ListViewController.swift in Sources */,
 				0D7ADB0B21C04DAE004A03DD /* FullScreenImageViewController.swift in Sources */,
 				0D6057ED21C252FF00D967D5 /* ArViewModel.swift in Sources */,
+				0DB1420B21F369FD00F4076E /* FloatingPoint.swift in Sources */,
 				0D5F8CEE21BD6BC300E22377 /* Place.swift in Sources */,
 				0D5F8CE621BD611600E22377 /* GalleryView.swift in Sources */,
 				0D5F8CDB21BD597E00E22377 /* ListViewModel.swift in Sources */,
@@ -491,6 +510,7 @@
 				0D7ADB0C21C04DAE004A03DD /* FullScreenImageView.swift in Sources */,
 				0D5F8CE021BD609500E22377 /* MapViewModel.swift in Sources */,
 				0D7ADB0D21C04DAE004A03DD /* FullScreenImageViewModel.swift in Sources */,
+				0DB1420521F369A000F4076E /* Double.swift in Sources */,
 				0D7ADB0421C0124F004A03DD /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
