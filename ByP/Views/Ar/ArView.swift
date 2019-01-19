@@ -122,6 +122,18 @@ final class ArView: UIView {
         $0.isHidden = true
     }
 
+    let rewardLabel = UILabel().then {
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.font = UIFont.robotoRegular(ofSize: 18)
+        $0.textColor = .black
+        $0.backgroundColor = UIColor.transparentWhite(alpha: 0.6)
+        $0.layer.cornerRadius = 6
+        $0.layer.masksToBounds = true
+        $0.textAlignment = .center
+        $0.isHidden = true
+        $0.text = "Gratulálunk, felfedeztél egy újabb festményt!"
+    }
+
     var opacityConstraints: [NSLayoutConstraint] = []
 
 	// MARK: - Lifecycle
@@ -138,6 +150,7 @@ final class ArView: UIView {
         addSubview(setButton)
         addSubview(exitButton)
         addSubview(instructionLabel)
+        addSubview(rewardLabel)
         addSubview(controls)
         addSubview(opacityLabel)
         addSubview(opacitySlider)
@@ -181,8 +194,14 @@ final class ArView: UIView {
         NSLayoutConstraint.activate([
             instructionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
             instructionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
-            instructionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 120),
+            instructionLabel.topAnchor.constraint(equalTo: topAnchor, constant: 140),
             instructionLabel.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        NSLayoutConstraint.activate([
+            rewardLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+            rewardLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
+            rewardLabel.topAnchor.constraint(equalTo: topAnchor, constant: 90),
+            rewardLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
         NSLayoutConstraint.activate([
             controls.leadingAnchor.constraint(equalTo: leadingAnchor),

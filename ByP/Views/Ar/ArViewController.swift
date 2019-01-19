@@ -130,21 +130,25 @@ final class ArViewController: UIViewController {
                         self.myView.instructionLabel.text = "Mozgasd a telefont, amíg síkot talál"
                         self.myView.setButton.isHidden = true
                         self.myView.editButton.isHidden = true
+                        self.myView.rewardLabel.isHidden = true
                     case .plainFound:
                         DispatchQueue.main.async {
                             self.myView.instructionLabel.isHidden = false
                             self.myView.instructionLabel.text = "Kattints a síkra a festmény elhelyezéséhez"
                             self.myView.setButton.isHidden = true
                             self.myView.editButton.isHidden = true
+                            self.myView.rewardLabel.isHidden = true
                         }
                     case .paintingPlaced:
                         self.myView.instructionLabel.isHidden = true
                         self.myView.setButton.isHidden = false
                         self.myView.editButton.isHidden = false
+                        self.myView.rewardLabel.isHidden = true
                     case .set:
                         self.myView.instructionLabel.isHidden = true
                         self.myView.setButton.isHidden = true
                         self.myView.editButton.isHidden = true
+                        self.myView.rewardLabel.isHidden = false
                     }
                 }
             })
@@ -255,7 +259,9 @@ final class ArViewController: UIViewController {
             paintingNodeIndex = myView.sceneView.scene.rootNode.childNodes.count-1
             isPaintingAdded = true
         }
-        viewModel.arState.accept(.paintingPlaced)
+        if viewModel.arState.value != .set || viewModel.arState.value != .paintingPlaced {
+            viewModel.arState.accept(.paintingPlaced)
+        }
     }
 
     func addTapGestureRecogniser() {
@@ -285,7 +291,9 @@ extension ArViewController: ARSCNViewDelegate, ARSessionDelegate {
 
         guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
         logger("plane found", event: .info)
-        viewModel.arState.accept(.plainFound)
+        if viewModel.arState.value != .set || viewModel.arState.value != .paintingPlaced {
+            viewModel.arState.accept(.plainFound)
+        }
 
         let width = CGFloat(planeAnchor.extent.x)
         let height = CGFloat(planeAnchor.extent.z)
